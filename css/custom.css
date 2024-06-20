@@ -1,0 +1,39 @@
+/* Gaya untuk versi desktop */
+@media (min-width: 769px) {
+    #downloadButton {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: auto;
+        background-color: #4abd0d !important;
+    }
+    
+    .download-icon {
+        max-width: 20px;
+        height: auto;
+        margin-right: 5px;
+    }
+}
+
+/* Gaya untuk versi ponsel */
+@media (max-width: 768px) {
+    #downloadButton {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+        max-width: 100%; /* Maksimum lebar tombol sebesar kontainer */
+        background-color: #4abd0d !important;
+    }
+    
+    .download-icon {
+        max-width: 30px;
+        height: auto;
+        margin-right: 5px;
+    }
+}
+
+.close-button {
+    position: relative;
+    left: -50px; /* Sesuaikan jarak ke kiri sesuai kebutuhan Anda */
+    outline: none;
+}

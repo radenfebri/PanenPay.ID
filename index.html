@@ -16,48 +16,9 @@
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css" />
   <link rel="stylesheet" href="vendors/aos/css/aos.css" />
   <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="stylesheet" href="css/custom.css" />
   <link rel="icon" type="image/x-icon" href="images/logo-panenpay.png" />
-  <style>
-    /* Gaya untuk versi desktop */
-    @media (min-width: 769px) {
-      #downloadButton {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: auto;
-        background-color: #4abd0d !important;
-      }
-      
-      .download-icon {
-        max-width: 20px;
-        height: auto;
-        margin-right: 5px;
-      }
-    }
-    
-    /* Gaya untuk versi ponsel */
-    @media (max-width: 768px) {
-      #downloadButton {
-        display: block;
-        margin: 0 auto;
-        width: fit-content;
-        max-width: 100%; /* Maksimum lebar tombol sebesar kontainer */
-        background-color: #4abd0d !important;
-      }
-      
-      .download-icon {
-        max-width: 30px;
-        height: auto;
-        margin-right: 5px;
-      }
-    }
-    
-    .close-button {
-      position: relative;
-      left: -50px; /* Sesuaikan jarak ke kiri sesuai kebutuhan Anda */
-      outline: none;
-    }
-  </style>
+
 </head>
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
   <header id="beranda">
@@ -636,7 +597,7 @@ data-aos-delay="600"
         <a href="https://play.google.com/store/apps/details?id=id.serpul.sp5437" target="_blank">
           <button class="btn" id="downloadButton">
             <img src="images/playstore.png" alt="Play Store" class="download-icon" />
-            <span class="download-text">Download di PlayStore</span>
+            <span class="download-text" style="color: white;">Download di PlayStore</span>
           </button>
         </a>
       </div>
@@ -650,7 +611,7 @@ data-aos-delay="600"
     <div class="col-12 col-md-6 col-lg-3 grid-margin">
       <h5 class="pb-2">Alamat</h5>
       <p class="text-muted">
-        Karangsari RT 003, RW 001, <br> Kedaleman, Rogojampi, Banyuwangi, Jawa Timur.
+        Karangsari RT 003 RW 001, <br> Kedaleman, Rogojampi, Banyuwangi, Jawa Timur.
       </p>
       <div
       class="d-flex justify-content-center justify-content-md-start"

@@ -1,3 +1,10 @@
 RewriteEngine On
+
+# Redirect to www
 RewriteCond %{HTTP_HOST} ^panenpay\.id [NC]
 RewriteRule ^(.*)$ http://www.panenpay.id/$1 [L,R=301]
+
+# Remove .html extension and internally rewrite
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]

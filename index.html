@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/custom.css" />
   <link rel="icon" type="image/x-icon" href="images/logo-panenpay.png" />
   <meta name="google-site-verification" content="xy9fliIQ4_PpXf7-H_8BgIooymhxCexHqHlnPuqVZcI" />
-
+  
 </head>
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
   <header id="beranda">
@@ -643,5 +643,16 @@ data-aos-delay="600"
 <script src="vendors/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendors/aos/js/aos.js"></script>
 <script src="js/landingpage.js"></script>
+<script>
+  function removeHtmlExtension() {
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (href.endsWith(".html")) {
+        links[i].setAttribute("href", href.slice(0, -5));
+      }
+    }
+  }
+</script>
 </body>
 </html>

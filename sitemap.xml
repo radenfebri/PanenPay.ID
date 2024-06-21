@@ -12,20 +12,30 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.panenpay.id/syarat.html</loc>
+  <loc>https://www.panenpay.id/syarat</loc>
   <lastmod>2024-06-20T23:20:08+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.panenpay.id/privasi.html</loc>
+  <loc>https://www.panenpay.id/privasi</loc>
   <lastmod>2024-06-20T23:20:08+00:00</lastmod>
   <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.panenpay.id/index.html</loc>
-  <lastmod>2024-06-20T23:20:08+00:00</lastmod>
-  <priority>0.64</priority>
 </url>
 
+<url>
+  <loc>https://panenpay.id/</loc>
+  <lastmod>2024-06-20T23:20:08+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://panenpay.id/syarat</loc>
+  <lastmod>2024-06-20T23:20:08+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://panenpay.id/privasi</loc>
+  <lastmod>2024-06-20T23:20:08+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 
 </urlset>

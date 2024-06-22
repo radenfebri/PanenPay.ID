@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "556218550128",
+    "project_id": "panenpay",
+    "storage_bucket": "panenpay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556218550128:android:890c7e28945add93e2b1b5",
+        "android_client_info": {
+          "package_name": "id.serpul.sp5437"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAws9tdmPzKUYCl884z7oapEzLQ0XquU4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

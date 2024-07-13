@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Top User Transaksi 🚀</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e4dede;
+        margin: 0;
+        padding: 10px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        padding-bottom: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-family: Calibri, sans-serif;
+      }
+
+      .upload-container {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .upload-container button,
+      button[onclick="exportData()"],
+      button[onclick="resetData()"] {
+        padding: 8px 16px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.1s, box-shadow 0.1s;
+        border-radius: 5px;
+        font-size: 14px;
+        box-shadow: 0 4px #dad7d7;
+        margin-top: 10px;
+      }
+
+      .upload-container button:hover,
+      button[onclick="exportData()"]:hover,
+      button[onclick="resetData()"]:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 6px #999;
+      }
+
+      .upload-container button:active,
+      button[onclick="exportData()"]:active,
+      button[onclick="resetData()"]:active {
+        background: #0056b3;
+        transform: translateY(4px);
+        box-shadow: 0 2px #666;
+      }
+
+      .swal2-confirm.swal2-styled.excel-button,
+      .swal2-confirm.swal2-styled.uploadfile-button,
+      .swal2-deny.swal2-styled,
+      .swal2-cancel.swal2-styled {
+        padding: 8px 16px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.1s, box-shadow 0.1s;
+        border-radius: 5px;
+        font-size: 14px;
+        box-shadow: 0 4px #dad7d7;
+      }
+
+      .swal2-confirm.swal2-styled.excel-button {
+        background-color: #088024 !important;
+      }
+
+      .swal2-confirm.swal2-styled.uploadfile-button,
+      .swal2-deny.swal2-styled {
+        background-color: #126ecf !important;
+      }
+
+      .swal2-cancel.swal2-styled {
+        background: #007bff;
+      }
+
+      .swal2-confirm.swal2-styled.excel-button:hover,
+      .swal2-confirm.swal2-styled.uploadfile-button:hover,
+      .swal2-deny.swal2-styled:hover,
+      .swal2-cancel.swal2-styled:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 6px #999;
+      }
+
+      .swal2-confirm.swal2-styled.excel-button:active,
+      .swal2-confirm.swal2-styled.uploadfile-button:active,
+      .swal2-deny.swal2-styled:active,
+      .swal2-cancel.swal2-styled:active {
+        background: #0056b3;
+        transform: translateY(4px);
+        box-shadow: 0 2px #666;
+      }
+
+      .summary {
+        font-size: 14px;
+        margin-bottom: 10px;
+        text-align: center;
+        display: none;
+      }
+
+      .table-responsive {
+        width: 100%;
+        margin-bottom: 0rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+        font-family: Calibri, sans-serif;
+      }
+
+      th {
+        background: #f2f2f2;
+      }
+
+      th.jumlah-transaksi {
+        white-space: nowrap;
+      }
+
+      input[type="file"] {
+        width: auto;
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+
+      .swal2-container .swal2-popup .swal2-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .swal2-container .swal2-popup .swal2-input,
+      .swal2-container .swal2-popup .swal2-textarea {
+        width: 80%;
+        max-width: 100%;
+      }
+
+      .swal2-container .swal2-popup .swal2-textarea {
+        min-height: 150px;
+      }
+
+      @media screen and (max-width: 600px) {
+        .container {
+          padding: 10px;
+          padding-bottom: 10px;
+        }
+
+        .table-responsive {
+          overflow-x: scroll;
+        }
+
+        th,
+        td {
+          white-space: nowrap;
+        }
+
+        th.jumlah-transaksi {
+          white-space: pre-line;
+        }
+
+        .swal2-container .swal2-popup .swal2-input,
+        .swal2-container .swal2-popup .swal2-textarea {
+          width: 100%;
+        }
+
+        .swal2-container .swal2-popup .swal2-textarea {
+          min-height: 200px;
+        }
+
+        input[type="file"] {
+          width: 100%;
+        }
+      }
+
+      .custom-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .custom-popup {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        width: 90%;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        text-align: center;
+      }
+
+      .custom-popup iframe {
+        width: 100%;
+        height: 300px;
+        border: none;
+      }
+
+      .custom-popup .close-button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+        box-shadow: 0 4px #dad7d7;
+      }
+
+      .custom-popup .close-button:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 6px #999;
+      }
+
+      .custom-popup .close-button:active {
+        background: #0056b3;
+        transform: translateY(4px);
+        box-shadow: 0 2px #666;
+      }
+
+      @media screen and (max-width: 600px) {
+        .custom-popup {
+          width: 90%;
+          max-width: 80%;
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="mt-3"></div>
+      <h1>Cek Level <br />Top User Transaksi 🚀</h1>
+      <div class="upload-container" id="uploadContainer">
+        <button id="uploadButton" onclick="showUploadOptions()">
+          Upload Data
+        </button>
+        <button id="tutorialButton" onclick="showCustomTutorial()">
+          Tutorial
+        </button>
+      </div>
+
+      <div class="summary" id="summary">
+        Jumlah Agen: <br />
+        Jumlah Transaksi:
+      </div>
+      <div class="table-responsive">
+        <table id="resultTable">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>ID Agen</th>
+              <th class="jumlah-transaksi">Jumlah Transaksi</th>
+              <th>Level</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Custom Popup -->
+    <div class="custom-popup-overlay" id="customPopupOverlay">
+      <div class="custom-popup" id="customPopup">
+        <div
+          id="loadingSpinner"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+          "
+        >
+          <div
+            class="spinner"
+            style="
+              width: 50px;
+              height: 50px;
+              border: 6px solid #f3f3f3;
+              border-top: 6px solid #007bff;
+              border-radius: 50%;
+              animation: spin 1s linear infinite;
+            "
+          ></div>
+        </div>
+        <iframe
+          id="tutorialVideo"
+          src="https://www.youtube.com/embed/qw-EMR5LNjk?si=O4egtB7YyKxaB1Vx"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="display: none"
+        ></iframe>
+        <button class="close-button" onclick="closeCustomPopup()">Close</button>
+      </div>
+    </div>
+    <script src="./js/top.js"></script>
+  </body>
+</html>

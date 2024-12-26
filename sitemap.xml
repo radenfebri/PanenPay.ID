@@ -5,7 +5,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-
 <url>
   <loc>https://www.panenpay.id/</loc>
   <lastmod>2024-06-20T23:20:08+00:00</lastmod>
@@ -44,6 +43,16 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
 </url>
 <url>
   <loc>https://panenpay.id/produk</loc>
+  <lastmod>2024-06-20T23:20:08+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://web.panenpay.id</loc>
+  <lastmod>2024-06-20T23:20:08+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://play.google.com/store/apps/details?id=com.smartserver.panenpay</loc>
   <lastmod>2024-06-20T23:20:08+00:00</lastmod>
   <priority>0.80</priority>
 </url>
